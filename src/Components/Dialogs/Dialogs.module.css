@@ -43,3 +43,7 @@
     display: grid;
     grid-template-columns: 1fr 11fr;
 }
+
+.dialog a {
+    color: black;
+}
