@@ -1,0 +1,45 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.iconStatus {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    margin-top: 9px;
+    margin-right: 10px;
+}
+
+.iconStatus.iconOnline {
+    background-color: green;
+}
+
+.iconStatus.iconOffline {
+    background-color: gray;
+}
+
+.dialogsItems h3 {
+    margin: 0;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    font-weight: normal;
+    font-size: 20px;
+    color: black;
+}
+
+.selectedDialog {
+    font-weight: bold;
+    color: black;
+}
+
+.dialog a {
+    text-decoration: none;
+    color: #262626;
+    margin: 3px 0;
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+}

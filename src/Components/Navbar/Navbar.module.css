@@ -1,0 +1,26 @@
+.nav_bar {
+  grid-area: nav;
+  background-color: #262626;
+  margin-top: 10px;
+  padding: 30px;
+}
+
+.nav_bar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav_bar ul li {
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+.nav_bar ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav_bar ul li a.active {
+  color: #197ABC;
+}
