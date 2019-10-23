@@ -24,3 +24,31 @@
 .nav_bar ul li a.active {
   color: #197ABC;
 }
+
+.friends {
+  display: grid;
+  grid-template-columns: 4fr 4fr 4fr;
+}
+
+.nav_bar h3 {
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.friend {
+  text-align: center;
+  transition: all 0.25s;
+}
+
+.friend:hover {
+  background-color: #6B6F72;
+}
+
+.friend .name {
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+}

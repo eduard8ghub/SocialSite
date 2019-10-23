@@ -15,3 +15,9 @@
   float: left;
   margin-right: 15px;
 }
+
+.txt_post button {
+  float: right;
+  margin-top: -6px;
+  padding: 0 10px;
+}

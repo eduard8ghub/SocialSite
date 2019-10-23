@@ -2,11 +2,12 @@ import React from 'react';
 import MyPosts from './MyPosts/MyPosts'
 import s from './Profile.module.css';
 
-const Profile = () => {
+
+
+const Profile = (props) => {
   return (
     <div>
       <div className={s.wallpaper}>
-        <img src=""/>
       </div>
       <div className={s.info_acount}>
         <div className={s.profile_photo}>
@@ -20,7 +21,12 @@ const Profile = () => {
             <div className={s.list_details}><span>Web Site:</span>google.md</div>
         </div>
       </div>
-      <MyPosts />
+      <MyPosts messages={props.state.posts}
+               addPost={props.addPost}
+               removePost={props.removePost}
+               updatePost={props.updatePost}
+               newPost={props.state.newPost}
+      />
     </div>
   );
 };

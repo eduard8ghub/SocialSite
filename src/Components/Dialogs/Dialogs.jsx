@@ -1,60 +1,1 @@
-import React from 'react';
-import s from './Dialogs.module.css';
-import {NavLink} from "react-router-dom";
-
-const listDialogs = [
-    {name: 'Dima',status: 'online',id: 1},
-    {name: 'Vasea',status: 'offline',id: 2},
-    {name: 'Olea',status: 'online',id: 3},
-    {name: 'Lena',status: 'offline',id: 4}
-];
-
-const messagesList = [
-    {message: 'Hi how are you?'},
-    {message: 'Hi i am Andrey?'},
-    {message: 'Hyyyyy'}
-];
-
-
-
-const Dialogs = (props) => {
-    console.log(props);
-  return (
-      <div className={s.dialogs}>
-          <div className={s.dialogsItems}>
-              <h3>Dialogs</h3>
-              <div className={s.dialog}>
-                  {
-                      listDialogs.map((item) => (
-                          <NavLink to={'/' + item.id}>
-                              <span className={s.iconStatus + ' ' + (item.status === 'online' ? s.iconOnline: s.iconOffline)}> </span>
-                              <div>{item.name}</div>
-                          </NavLink>
-                      ))
-                  }
-              </div>
-
-          </div>
-          <div className={s.messages}>
-              {
-                  messagesList.map(itemMessage => (
-                      <div className={s.message}>{itemMessage.message}</div>
-                  ))
-              }
-          </div>
-      </div>
-  );
-};
-
-export default Dialogs;
-
-
-
-// {
-//     list.map(item => (
-//         <NavLink to={props.location.pathname} activeClassName={s.selectedDialog}>
-//             <span className={s.iconStatus + ' ' + (item.status === 'online' ? s.iconOnline : s.iconOffline)}> </span>
-//             <div>{item.name}</div>
-//         </NavLink>
-//     ))
-// }
+import React from 'react';import s from './Dialogs.module.css';import {NavLink} from "react-router-dom";import {Button, Input, Radio} from "antd";const { TextArea } = Input;const Dialogs = (props) => {  let data = new Date();  let getData = {    hour: data.getHours().toString(),    minute: data.getMinutes().toString()  };  let currentTime = getData.hour + ':' + (getData.minute.length === 1 ? ('0' + getData.minute) : getData.minute );  let messages = props.state.messages.map((item, index) => (    <div className={s.message + ' ' + (index % 2 ? s.message1 : s.message2)}>      {item.message}      <span className={s.time_mess}>{item.time}</span>    </div>  ));  let dialogs = props.state.listDialogs.map(item => (    <NavLink to={'/' + item.id}>      <span className={s.iconStatus + ' ' + (item.status === 'online' ? s.iconOnline : s.iconOffline)}> </span>      <div>{item.name}</div>    </NavLink>  ));  let newMessage = React.createRef();  let addMessage = () => {    let text = newMessage.current.textAreaRef.value;    props.addMessage(text, currentTime);  };  let changeMessage = () => {    let txt = newMessage.current.textAreaRef.value;    props.updateText(txt);  };  return (    <div className={s.dialogs}>      <div className={s.dialogsItems}>        <h3>Dialogs</h3>        <div className={s.dialog}>          {dialogs}        </div>      </div>      <div className={s.messages}>        {messages}        <TextArea rows={2} ref={newMessage} value={props.state.newMessage} onChange={changeMessage}/>        <Button onClick={addMessage} type="primary">Send</Button>      </div>    </div>  );};export default Dialogs;

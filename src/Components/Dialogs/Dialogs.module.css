@@ -43,3 +43,54 @@
     display: grid;
     grid-template-columns: 1fr 11fr;
 }
+
+/*.messages {*/
+/*    display: grid;*/
+/*    grid-template-columns: 6fr 6fr;*/
+/*    grid-template-rows: 6fr 6fr;*/
+/*    background-color: darkgray;*/
+/*    padding: 20px;*/
+/*}*/
+
+.message {
+    display: block;
+    background-color: #EBECF0;
+    margin-bottom: 2px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: black;
+    font-size: 16px;
+    position: relative;
+}
+
+.message1 {
+    float: left;
+    clear: right;
+    margin-bottom: 15px;
+    padding-right: 55px;
+}
+.message2 {
+    margin-bottom: 15px;
+    float: right;
+    clear: left;
+    padding-left: 55px;
+}
+
+.time_mess {
+    font-size: 9px;
+    color: #b0b1b5;
+    position: absolute;
+    bottom: 8px;
+}
+
+.message1 .time_mess {
+    right: 15px;
+}
+
+.message2 .time_mess {
+    left: 15px;
+}
+
+.messages textarea {
+    margin: 20px 0 10px;
+}

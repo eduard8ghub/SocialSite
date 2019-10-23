@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Route} from "react-router-dom";
+import 'antd/dist/antd.css';
+import {Route} from "react-router-dom";
 
 import Header from './Components/Header/Header'
 import NavBar from './Components/Navbar/Navbar';
@@ -10,20 +11,27 @@ import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 
 
-const App = () => {
+const App = (props) => {
   return (
-    <BrowserRouter>
       <div className="App_Wrapper">
         <Header/>
-        <NavBar/>
+        <NavBar state={props.state.sideBar}/>
         <div className="content">
-          <Route exact path='/' component={Profile}/>
-          <Route path='/dialogs' component={Dialogs}/>
-          <Route path='/news' component={News} />
-          <Route path='/music' component={Music} />
+          <Route exact path='/' render={() => <Profile
+                                                  state={props.state.profilePage}
+                                                  addPost={props.addPost}
+                                                  removePost={props.removePost}
+                                                  updatePost={props.updatePost}
+                                              />}/>
+          <Route path='/dialogs' render={() => <Dialogs
+                                                  state={props.state.dialogsPage}
+                                                  addMessage={props.addMessage}
+                                                  updateText={props.updateText}
+                                              />}/>
+          <Route path='/news' render={News} />
+          <Route path='/music' render={Music} />
         </div>
       </div>
-    </BrowserRouter>
   );
 };
 
