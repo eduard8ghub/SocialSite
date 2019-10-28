@@ -15,19 +15,10 @@ const App = (props) => {
   return (
       <div className="App_Wrapper">
         <Header/>
-        <NavBar state={props.state.sideBar}/>
+        <NavBar store={props.store.sideBar}/>
         <div className="content">
-          <Route exact path='/' render={() => <Profile
-                                                  state={props.state.profilePage}
-                                                  addPost={props.addPost}
-                                                  removePost={props.removePost}
-                                                  updatePost={props.updatePost}
-                                              />}/>
-          <Route path='/dialogs' render={() => <Dialogs
-                                                  state={props.state.dialogsPage}
-                                                  addMessage={props.addMessage}
-                                                  updateText={props.updateText}
-                                              />}/>
+          <Route exact path='/profile' render={() => <Profile store={props.store.profilePage} dispatch={props.store.dispatch}/>}/>
+          <Route path='/dialogs' render={() => <Dialogs store={props.store.dialogsPage} />}/>
           <Route path='/news' render={News} />
           <Route path='/music' render={Music} />
         </div>

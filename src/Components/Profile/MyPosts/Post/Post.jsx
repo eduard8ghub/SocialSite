@@ -7,7 +7,7 @@ const Post = (props) => {
 
   let removeMessage = () => {
     let idx = currentPost.current.id;
-    props.removePost(idx)
+    props.deletePost(idx)
   };
 
   return (

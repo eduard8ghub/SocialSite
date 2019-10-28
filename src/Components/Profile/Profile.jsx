@@ -21,12 +21,7 @@ const Profile = (props) => {
             <div className={s.list_details}><span>Web Site:</span>google.md</div>
         </div>
       </div>
-      <MyPosts messages={props.state.posts}
-               addPost={props.addPost}
-               removePost={props.removePost}
-               updatePost={props.updatePost}
-               newPost={props.state.newPost}
-      />
+      <MyPosts store={props.store} dispatch={props.dispatch}/>
     </div>
   );
 };
