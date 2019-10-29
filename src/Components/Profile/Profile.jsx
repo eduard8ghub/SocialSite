@@ -21,7 +21,7 @@ const Profile = (props) => {
             <div className={s.list_details}><span>Web Site:</span>google.md</div>
         </div>
       </div>
-      <MyPosts store={props.store} dispatch={props.dispatch}/>
+      <MyPosts profilePage={props.profilePage} dispatch={props.dispatch}/>
     </div>
   );
 };

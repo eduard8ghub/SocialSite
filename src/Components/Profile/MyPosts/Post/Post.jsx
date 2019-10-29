@@ -1,13 +1,15 @@
 import React from 'react';
 import s from './Post.module.css';
 import {Button} from "antd";
+import {deletePostActionCreator} from "../../../../redux/store";
 
 const Post = (props) => {
   let currentPost = React.createRef();
 
   let removeMessage = () => {
     let idx = currentPost.current.id;
-    props.deletePost(idx)
+    let action = deletePostActionCreator(idx);
+    props.dispatch(action);
   };
 
   return (
