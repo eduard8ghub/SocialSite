@@ -3,7 +3,7 @@ import {Input, Button} from 'antd';
 
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
-import {addPostActionCreator, updatePostActionCreator} from "../../../redux/store";
+import {addPostActionCreator, updatePostActionCreator} from "../../../redux/profile-reducer";
 
 const { TextArea } = Input;
 

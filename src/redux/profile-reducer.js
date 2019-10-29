@@ -27,4 +27,16 @@ const profileReducer = (state, action) => {
   }
 };
 
+export let addPostActionCreator = (text) => {
+  return {type: ADD_POST, post: text};
+};
+
+export let updatePostActionCreator = (text) => {
+  return { type: UPDATE_POST, newPost: text}
+};
+
+export let deletePostActionCreator = (idx) => {
+  return { type: DELETE_POST, index: +idx}
+};
+
 export default profileReducer;

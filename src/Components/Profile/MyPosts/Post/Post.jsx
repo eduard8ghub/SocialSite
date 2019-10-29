@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './Post.module.css';
 import {Button} from "antd";
-import {deletePostActionCreator} from "../../../../redux/store";
+import {deletePostActionCreator} from "../../../../redux/profile-reducer";
 
 const Post = (props) => {
   let currentPost = React.createRef();
