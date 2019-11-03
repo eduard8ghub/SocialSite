@@ -28,7 +28,7 @@ let initialState = {
         // }
 
     ],
-    totalUsersCount: 25,
+    totalUsersCount: 8,
     showUsersToPage: 3,
     currentPage: 1
 };

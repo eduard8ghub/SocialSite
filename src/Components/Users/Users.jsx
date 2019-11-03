@@ -6,17 +6,17 @@ import axios from "axios";
 
 class Users extends React.Component {
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.showUsersToPage}`)
+        axios.get(`http://localhost:3004/users?_page=${this.props.currentPage}&_limit=${this.props.showUsersToPage}`)
             .then((respons) => {
-                this.props.setUsers(respons.data.items);
+                this.props.setUsers(respons.data);
             });
     }
 
     onChangePage = (pageNumber) => {
         this.props.changeCurrentPage(pageNumber);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.showUsersToPage}`)
+        axios.get(`http://localhost:3004/users?_page=${pageNumber}&_limit=${this.props.showUsersToPage}`)
             .then((respons) => {
-                this.props.setUsers(respons.data.items);
+                this.props.setUsers(respons.data);
             });
     };
 
@@ -42,9 +42,9 @@ class Users extends React.Component {
                     this.props.users.map((u, index) =>
                         <div className={s.user_item} key={index}>
                             <div className={s.wrap_avatar}>
-                                <span className={s.avatar}><img src={u.photos.small} alt="avatar"/></span>
+                                <span className={s.avatar}><img src={u.avatarSrc} alt="avatar"/></span>
                                 {
-                                    !u.followed
+                                    !u.status
                                         ? <Button onClick={() => {
                                             this.props.follow(u.id)
                                         }} type="primary">Follow</Button>
@@ -55,8 +55,8 @@ class Users extends React.Component {
                             </div>
                             <div className={s.wrap_info}>
                                 <div className={s.left_side}>
-                                    <span className={s.name}>{u.name}</span>
-                                    <div className={s.status}>{u.status}</div>
+                                    <span className={s.name}>{u.fullName}</span>
+                                    <div className={s.status}>{u.status} {index+1}</div>
                                 </div>
                                 <div className={s.right_side}>
                                     <div className={s.location}>
