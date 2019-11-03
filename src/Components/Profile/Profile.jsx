@@ -1,6 +1,6 @@
 import React from 'react';
-import MyPosts from './MyPosts/MyPosts'
 import s from './Profile.module.css';
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
 
@@ -21,7 +21,7 @@ const Profile = (props) => {
             <div className={s.list_details}><span>Web Site:</span>google.md</div>
         </div>
       </div>
-      <MyPosts profilePage={props.profilePage} dispatch={props.dispatch}/>
+      <MyPostsContainer store={props.store}/>
     </div>
   );
 };

@@ -5,7 +5,6 @@ import s from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
 
 const NavBar = (props) => {
-
   return (
     <div className={s.nav_bar}>
       <nav>
@@ -15,6 +14,9 @@ const NavBar = (props) => {
           </li>
           <li>
             <NavLink to='/dialogs' activeClassName={s.active}>Messages</NavLink>
+          </li>
+            <li>
+            <NavLink to='/users' activeClassName={s.active}>Users</NavLink>
           </li>
           <li>
             <NavLink to='/news' activeClassName={s.active}>News</NavLink>
@@ -31,8 +33,8 @@ const NavBar = (props) => {
       <div className={s.friends}>
 
         {
-          props.store.getFriends().map(item => (
-            <NavLink to='/' className={s.friend}>
+          props.store.sideBar.friends.map((item, index) => (
+            <NavLink to='/' key={index} className={s.friend}>
               <Avatar size={item.size} src={item.avatar}/>
               <div className={s.name}>{item.name}</div>
             </NavLink>

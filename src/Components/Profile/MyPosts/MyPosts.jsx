@@ -2,26 +2,24 @@ import React from 'react';
 import {Input, Button} from 'antd';
 
 import s from './MyPosts.module.css';
-import Post from './Post/Post';
-import {addPostActionCreator, updatePostActionCreator} from "../../../redux/profile-reducer";
+import PostContainer from "./Post/PostContainer";
 
 const { TextArea } = Input;
 
 
 
 const MyPosts = (props) => {
+
   let newPost = React.createRef();
 
   let addNewPost = () => {
     let text = newPost.current.textAreaRef.value;
-    let action = addPostActionCreator(text);
-    props.dispatch(action);
+    props.addNewPost(text);
   };
 
   let onPostChange = () => {
-    let txt = newPost.current.textAreaRef.value;
-    let action = updatePostActionCreator(txt);
-    props.dispatch(action);
+    let text = newPost.current.textAreaRef.value;
+    props.changePost(text);
   };
 
 
@@ -34,13 +32,16 @@ const MyPosts = (props) => {
           <Button onClick={addNewPost} type="primary" className={s.button_send}>Send</Button>
         </div>
       </div>
-        {
-          props.profilePage.post.map( (item, index) => (
-                <Post messages={item.message} id={index} dispatch={props.dispatch}/>
-            ))
-        }
+      <PostContainer />
+        {/*{*/}
+        {/*  props.profilePage.posts.map( (item, index) => {*/}
+        {/*    console.log(item.message);*/}
+        {/*        return <PostContainer messages={item.message} id={index} store={props.store}/>*/}
+        {/*})*/}
+        {/*}*/}
     </div>
   );
 };
+
 
 export default MyPosts;

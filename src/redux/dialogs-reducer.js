@@ -1,31 +1,55 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
 
-const dialogsReducer = (state, action) => {
+let initialState = {
+  messages: [
+    {message: 'Hi, how are you? Hi, how are you?', time: '12:00'},
+    {message: 'Hi, i am fine', time: '12:00'},
+    {message: 'Hi, i am fine', time: '12:00'},
+    {message: 'Hi, i am fine Hi, how are you? Hi, how are you?', time: '12:00'},
+    {
+      message: 'Hi, i am fine Hi, how are you? Hi, how are you? Hi, how are you? Hi, how are you?',
+      time: '12:00'
+    },
+    {message: 'Hi, i am fine', time: '12:00'}
+  ],
+  listDialogs: [
+    {name: 'Dima', status: 'online', id: 1},
+    {name: 'Vasea', status: 'offline', id: 2},
+    {name: 'Olea', status: 'online', id: 3},
+    {name: 'Lena', status: 'offline', id: 4}
+  ],
+  newMessage: 'Write text',
+};
+
+const dialogsReducer = (state = initialState, action) => {
+  let stateCopy;
   switch (action.type) {
     case ADD_MESSAGE:
-      let newMessage = {
-        message: action.message,
-        time: action.time
+      stateCopy = {
+        ...state,
+        newMessage: '',
+        messages: [...state.messages, {message: state.newMessage, time: action.time}]
       };
-      state.messages.push(newMessage);
-      state.newMessage = '';
-      return state;
+      return stateCopy;
     case UPDATE_NEW_MESSAGE:
-      state.newMessage = action.newMessage;
-      return state;
+      stateCopy = {
+        ...state,
+        newMessage: action.newMessage
+      };
+      return stateCopy;
     default:
       return state;
 
   }
 };
 
-export let addNewMessageActionCreator = (text, newTime) => {
-  return { type: ADD_MESSAGE, message: text, time: newTime}
+export let addNewMessageActionCreator = (newTime) => {
+  return {type: ADD_MESSAGE, time: newTime}
 };
 
 export let updateNewMessageActionCreator = (text) => {
-  return { type: UPDATE_NEW_MESSAGE, newMessage: text}
+  return {type: UPDATE_NEW_MESSAGE, newMessage: text}
 };
 
 export default dialogsReducer;
