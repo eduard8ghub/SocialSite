@@ -1,6 +1,8 @@
-body {
+html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 img {
@@ -8,19 +10,22 @@ img {
 }
 
 .App_Wrapper {
+  min-height: 100%;
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-areas:
-    "header header"
-    "nav content";
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 60px 1fr auto;
+
+}
+
+.wrap_content {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 }
 
 .content {
-  grid-area: content;
-  padding: 10px 0 20px 20px;
+  min-height: 100%;
+  padding: 20px;
 }
 
 .ant-avatar {

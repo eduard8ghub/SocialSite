@@ -7,23 +7,27 @@ import Header from './Components/Header/Header'
 import NavBar from './Components/Navbar/Navbar';
 import Profile from './Components/Profile/Profile';
 import News from "./Components/News/News";
-import Music from "./Components/Music/Music";
 import DialogsStore from "./Components/Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
+import SettingsContainer from "./Components/Setings/SettingsContainer";
+import Footer from "./Components/Footer/Footer";
 
 
 const App = (props) => {
   return (
       <div className="App_Wrapper">
         <Header/>
-        <NavBar store={props.store.getState()}/>
-        <div className="content">
-          <Route exact path='/profile' render={() => <Profile store={props.store}/>}/>
-          <Route path='/dialogs' render={() => <DialogsStore store={props.store}/>}/>
-          <Route path='/users' render={() => <UsersContainer />}/>
-          <Route path='/news' render={News} />
-          <Route path='/music' render={Music} />
+        <div className="wrap_content">
+            <NavBar store={props.store.getState()}/>
+            <div className="content">
+                <Route exact path='/profile' render={() => <Profile store={props.store}/>}/>
+                <Route path='/dialogs' render={() => <DialogsStore store={props.store}/>}/>
+                <Route path='/users/:userId?' render={() => <UsersContainer />}/>
+                <Route path='/settings/:userId?' render={() => <SettingsContainer />}/>
+                <Route path='/news' render={News} />
+            </div>
         </div>
+          {/*<Footer/>*/}
       </div>
   );
 };

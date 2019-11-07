@@ -1,8 +1,6 @@
 .header {
   background-color: #262626;
-  height: 60px;
   border-bottom: 3px solid #000;
-  grid-area: header;
 }
 
 .header .logo {

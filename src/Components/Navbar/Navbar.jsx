@@ -18,6 +18,9 @@ const NavBar = (props) => {
             <li>
             <NavLink to='/users' activeClassName={s.active}>Users</NavLink>
           </li>
+            <li>
+                <NavLink to='/settings' activeClassName={s.active}>Settings</NavLink>
+            </li>
           <li>
             <NavLink to='/news' activeClassName={s.active}>News</NavLink>
           </li>

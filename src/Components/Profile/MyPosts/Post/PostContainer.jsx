@@ -1,7 +1,21 @@
 import {connect} from "react-redux";
 import Post from "./Post";
 import {deletePostActionCreator, setPostsAC} from "../../../../redux/profile-reducer";
+import axios from "axios";
+import * as React from "react";
 
+class PostContainer extends React.Component {
+  componentDidMount() {
+    axios.get('http://localhost:3004/profilePage')
+        .then((response) => {
+          this.props.setPosts(response.data.posts);
+        })
+  }
+
+  render() {
+    return <Post posts={this.props.posts}/>
+  }
+}
 
 let mapStateToProps = (state) => {
   return {
@@ -20,6 +34,5 @@ let mapDispatchToProps = (dispatch) => {
   }
 };
 
-const PostContainer = connect(mapStateToProps, mapDispatchToProps)(Post);
+export default connect(mapStateToProps, mapDispatchToProps)(PostContainer);
 
-export default PostContainer;

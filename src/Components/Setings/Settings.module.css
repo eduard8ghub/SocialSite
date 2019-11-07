@@ -1,0 +1,33 @@
+.top_line {
+    display: grid;
+    justify-content: space-between;
+    grid-auto-flow: column;
+    border-bottom: 1px solid #9e9e9e;
+    padding: 10px 0;
+    margin-bottom: 30px;
+}
+
+.wrap_change_photo {
+    display: grid;
+    justify-content: space-evenly;
+    grid-auto-flow: column;
+    margin-bottom: 30px;
+}
+
+.wrap_change_photo .photo {
+    width: 200px;
+}
+
+.wrap_change_photo Button {
+    align-self: center;
+    justify-self: start;
+}
+
+.wrap_info {
+    padding: 20px 50px;
+}
+
+.wrap_info Input {
+    margin: 10px 0;
+    height: 40px;
+}

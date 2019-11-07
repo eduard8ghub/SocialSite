@@ -4,9 +4,12 @@
       "id": 1,
       "avatarSrc": "https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png",
       "follow": true,
-      "fullName": "Borea D",
+      "fullName": "Dima K",
       "status": "The best status ",
-      "location": {"country": "Moldova", "city": "Chisianu"}
+      "location": {
+        "country": "Belorusia",
+        "city": "Minsk"
+      }
     },
     {
       "id": 2,
@@ -14,55 +17,76 @@
       "follow": false,
       "fullName": "Dima K",
       "status": "The best status ",
-      "location": {"country": "Belorusia", "city": "Minsk"}
-    },
-    {
-      "id": 2,
-      "avatarSrc": "https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png",
-      "follow": false,
-      "fullName": "Ina R",
-      "status": "The best status ",
-      "location": {"country": "Belorusia", "city": "Minsk"}
-    },
-    {
-      "id": 2,
-      "avatarSrc": "https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png",
-      "follow": false,
-      "fullName": "Olea F",
-      "status": "The best status ",
-      "location": {"country": "Belorusia", "city": "Minsk"}
-    },
-    {
-      "id": 2,
-      "avatarSrc": "https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png",
-      "follow": false,
-      "fullName": "Igor K",
-      "status": "The best status ",
-      "location": {"country": "Belorusia", "city": "Minsk"}
-    },
-    {
-      "id": 2,
-      "avatarSrc": "https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png",
-      "follow": false,
-      "fullName": "Vasea K",
-      "status": "The best status ",
-      "location": {"country": "Belorusia", "city": "Minsk"}
-    },
-    {
-      "id": 2,
-      "avatarSrc": "https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png",
-      "follow": false,
-      "fullName": "Radu K",
-      "status": "The best status ",
-      "location": {"country": "Romania", "city": "Bucuresti"}
+      "location": {
+        "country": "Belorusia",
+        "city": "Minsk"
+      }
     },
     {
       "id": 3,
       "avatarSrc": "https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png",
+      "follow": false,
+      "fullName": "Ina R",
+      "status": "The best status ",
+      "location": {
+        "country": "Belorusia",
+        "city": "Minsk"
+      }
+    },
+    {
+      "id": 4,
+      "avatarSrc": "https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png",
+      "follow": false,
+      "fullName": "Olea F",
+      "status": "The best status ",
+      "location": {
+        "country": "Belorusia",
+        "city": "Minsk"
+      }
+    },
+    {
+      "id": 5,
+      "avatarSrc": "https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png",
+      "follow": false,
+      "fullName": "Igor K",
+      "status": "The best status ",
+      "location": {
+        "country": "Belorusia",
+        "city": "Minsk"
+      }
+    },
+    {
+      "id": 6,
+      "avatarSrc": "https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png",
+      "follow": false,
+      "fullName": "Vasea K",
+      "status": "The best status ",
+      "location": {
+        "country": "Belorusia",
+        "city": "Minsk"
+      }
+    },
+    {
+      "id": 7,
+      "avatarSrc": "https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png",
+      "follow": false,
+      "fullName": "Radu K",
+      "status": "The best status ",
+      "location": {
+        "country": "Romania",
+        "city": "Bucuresti"
+      }
+    },
+    {
+      "id": 8,
+      "avatarSrc": "https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png",
       "follow": true,
       "fullName": "Vasile R",
       "status": "The best status ",
-      "location": {"country": "Russia", "city": "Moscow"}
+      "location": {
+        "country": "Russia",
+        "city": "Moscow"
+      }
     }
   ],
   "profilePage": {
@@ -83,7 +107,13 @@
     "newPost": "React JS"
   },
   "comments": [
-    { "id": 1, "body": "some ", "postId": 1 }
+    {
+      "id": 1,
+      "body": "some ",
+      "postId": 1
+    }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "name": "typicode"
+  }
 }
