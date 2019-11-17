@@ -2,62 +2,38 @@ import {connect} from "react-redux";
 import {
     changeCurrentPage,
     follow,
+    followTC,
+    getUsersThunkCreator,
     setUsers,
-    unFollow,
+    unFollow, unFollowTC,
 } from "../../redux/users-reducer";
 import React from "react";
-import axios from "axios";
 import Users from "./Users";
-import {setIsFetching} from "../../redux/preloader-reducer";
 import Preloader from "../Common/Preloader/Preloader";
 import {withRouter} from "react-router-dom";
-import {usersAPI} from "../../api/api";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.setIsFetching(true);
-        usersAPI.getUsers(this.props.currentPage, this.props.showUsersToPage)
-            .then((data) => {
-                this.props.setIsFetching(false);
-                this.props.setUsers(data);
-            });
+        this.props.getUsersThunkCreator(this.props.currentPage, this.props.showUsersToPage)
     }
 
-    // setFollow = (userId) => {
-    //     console.log(this.props.users[1]);
-    //     axios.put('http://localhost:3004/users/1', {})
-    //         .then((respons) => {
-    //             debugger
-    //             respons.data.follow = true
-    //         });
-    // };
-
     onChangePage = (pageNumber) => {
-        this.props.changeCurrentPage(pageNumber);
-        this.props.setIsFetching(true);
-            usersAPI.getUsers(pageNumber, this.props.showUsersToPage)
-            .then((data) => {
-                this.props.setIsFetching(false);
-                this.props.setUsers(data);
-            });
+        this.props.getUsersThunkCreator(pageNumber, this.props.currentPage, this.props.showUsersToPage)
+    };
+
+    onFollow = (userId) => {
+        this.props.followTC(userId);
+    };
+
+    onUnFollow = (userId) => {
+        this.props.unFollowTC(userId);
     };
 
     render() {
         return (
             <>
                 {this.props.isFetching === true ? <Preloader/> : null}
-
-                <Users
-                    users={this.props.users}
-                    totalUsersCount={this.props.totalUsersCount}
-                    showUsersToPage={this.props.showUsersToPage}
-                    currentPage={this.props.currentPage}
-                    onChangePage={this.onChangePage}
-                    follow={this.props.follow}
-                    unFollow={this.props.unFollow}
-                    match{...this.props.match}
-                    setFollow={this.setFollow}
-                />
+                <Users {...this.props} onChangePage={this.onChangePage} onFollow={this.onFollow} onUnFollow={this.onUnFollow}/>
             </>
         )
     }
@@ -69,13 +45,14 @@ let mapStateToProps = (state) => {
         totalUsersCount: state.usersPage.totalUsersCount,
         showUsersToPage: state.usersPage.showUsersToPage,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.preloaderC.isFetching
+        isFetching: state.preloaderC.isFetching,
+        statusLoadingButton: state.usersPage.statusLoadingButton
     }
 };
 
 let WithUrlDataCC = withRouter(UsersContainer);
 
 export default connect(mapStateToProps,
-    {follow, unFollow, setUsers, changeCurrentPage, setIsFetching}
-    )(WithUrlDataCC);
+    {follow, unFollow, setUsers, changeCurrentPage, getUsersThunkCreator, followTC, unFollowTC}
+)(WithUrlDataCC);
 

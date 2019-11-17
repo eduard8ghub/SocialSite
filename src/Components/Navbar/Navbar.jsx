@@ -27,6 +27,9 @@ const NavBar = (props) => {
           <li>
             <NavLink to='/music' activeClassName={s.active}>Music</NavLink>
           </li>
+          <li>
+            <NavLink to='/login' activeClassName={s.active}>Login</NavLink>
+          </li>
           {/*<li>*/}
           {/*  <a href="#">Settings</a>*/}
           {/*</li>*/}

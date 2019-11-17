@@ -1,6 +1,8 @@
 .header {
   background-color: #262626;
   border-bottom: 3px solid #000;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .header .logo {
@@ -8,4 +10,10 @@
   height: 60px;
   margin-left: 20px;
   cursor: pointer;
+}
+
+.loginBlock {
+  justify-self: end;
+  align-self: center;
+  margin-right: 20px;
 }

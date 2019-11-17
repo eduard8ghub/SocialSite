@@ -52,6 +52,20 @@
     font-weight: bold;
 }
 
-.active_page {
+span.active_page {
     font-weight: bold;
+    background-color: #1890ff;
+    border: 1px solid #1890ff;
+    color: white;
+}
+
+.buttonPagination {
+    display: inline-block;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    text-align: center;
+    margin: 2px 2px 20px 2px;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Users.module.css";
 import Button from "antd/es/button";
-import axios from "axios";
+import defaultAvatar from './../../Images/avatar.png';
 
 
 const Users = (props) => {
@@ -11,42 +11,31 @@ const Users = (props) => {
         pages.push(i)
     }
 
-    let onUnFollow = (idUser) => {
-        // axios.post(`http://localhost:3004/users/1`)
-        //     .then((respons) => {
-        //         debugger
-        //
-        //     });
-    };
-
-    let follow = (idUser) => {
-        props.setFollow()
-    };
-
     return (
         <div>
             <h3>Users</h3>
             {pages.map(p => (
-                <span onClick={() => {
+                <span key={p} onClick={() => {
                     props.onChangePage(p)
                 }}
-                      className={props.currentPage === p && s.active_page}>{p}</span>
+                      className={props.currentPage === p ? (s.active_page + ' ' + s.buttonPagination) : s.buttonPagination}>{p}</span>
             ))}
-
             {
                 props.users.map((u, index) =>
                     <div className={s.user_item} key={index}>
                         <div className={s.wrap_avatar}>
-                            <span className={s.avatar}><img src={u.avatarSrc} alt="avatar"/></span>
-                            {u.follow === true
-                                ? <Button type="primary" onClick={() => {onUnFollow(u.id)}} >UnFollow</Button>
-                                : <Button type="primary" onClick={() => {follow(u.id)}} >Follow</Button>
+                            <span className={s.avatar}><img
+                                src={u.photos.small !== null ? u.photos.small : defaultAvatar} alt="avatar"/></span>
+
+                            {u.followed === true
+                                ? <Button loading={props.statusLoadingButton.some(id => id === u.id)} type="primary" onClick={() => {props.onUnFollow(u.id)}}>UnFollow</Button>
+                                : <Button loading={props.statusLoadingButton.some(id => id === u.id)} type="primary" onClick={() => {props.onFollow(u.id)}}>Follow</Button>
                             }
                         </div>
                         <div className={s.wrap_info}>
                             <div className={s.left_side}>
-                                <span className={s.name}>{u.fullName}</span>
-                                <div className={s.status}>{u.status} {index + 1}</div>
+                                <span className={s.name}>{u.name}</span>
+                                <div className={s.status}>{u.status} ID:{u.id}</div>
                             </div>
                             <div className={s.right_side}>
                                 <div className={s.location}>
