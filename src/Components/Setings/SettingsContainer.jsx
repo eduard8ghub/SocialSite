@@ -4,6 +4,8 @@ import {connect} from "react-redux";
 import {changeName, changeStatus, setUser, showStatus} from "../../redux/settings-reducer";
 import axios from "axios";
 import {withRouter} from "react-router-dom";
+import {compose} from "redux";
+import WithAuthRedirect from "../../hoc/WithAuthRedirect";
 
 class SettingsContainer extends React.Component {
 
@@ -39,11 +41,9 @@ let mapStateToProps = (state) => {
     }
 };
 
-let WithUrlDataContainerComponent = withRouter(SettingsContainer);
 
-export default connect(mapStateToProps,{
-    setUser,
-    changeName,
-    changeStatus,
-    showStatus
-})(WithUrlDataContainerComponent);
+export default compose(
+    connect(mapStateToProps,{setUser, changeName, changeStatus, showStatus}),
+    withRouter,
+    WithAuthRedirect
+)(SettingsContainer);

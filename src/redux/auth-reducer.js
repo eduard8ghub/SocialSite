@@ -38,4 +38,4 @@ export const authTC = () => {
     }
 };
 
-export default authReducer;
+// export default authReducer1;

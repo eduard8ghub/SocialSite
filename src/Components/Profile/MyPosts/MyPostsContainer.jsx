@@ -1,6 +1,8 @@
 import {connect} from "react-redux";
 import MyPosts from "./MyPosts";
 import {addPostActionCreator, updatePostActionCreator} from "../../../redux/profile-reducer";
+import {compose} from "redux";
+import WithAuthRedirect from "../../../hoc/WithAuthRedirect";
 
 
 let mapStateToProps = (state) => {
@@ -20,6 +22,8 @@ let mapDispatchToProps = (dispatch) => {
   }
 };
 
-const MyPostContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 
-export default MyPostContainer;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    WithAuthRedirect
+)(MyPosts);

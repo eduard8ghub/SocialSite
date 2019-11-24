@@ -31,3 +31,36 @@
   padding-right: 5px;
 }
 
+
+.wrap_status {
+  margin-bottom: 10px;
+}
+
+.wrap_status span {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.changeColor {
+  padding: 5px 3px;
+  margin-bottom: 30px;
+}
+
+.changeColor .btnChangeColor {
+  cursor: pointer;
+  font-size: 23px;
+  float: left;
+  margin-right: 20px;
+}
+
+
+.wrap_colors {
+}
+
+.color_cub {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin: 0 2px;
+  cursor: pointer;
+}

@@ -11,6 +11,8 @@ import React from "react";
 import Users from "./Users";
 import Preloader from "../Common/Preloader/Preloader";
 import {withRouter} from "react-router-dom";
+import {compose} from "redux";
+import WithAuthRedirect from "../../hoc/WithAuthRedirect";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -50,9 +52,12 @@ let mapStateToProps = (state) => {
     }
 };
 
-let WithUrlDataCC = withRouter(UsersContainer);
+// let WithUrlDataCC = (UsersContainer);
 
-export default connect(mapStateToProps,
-    {follow, unFollow, setUsers, changeCurrentPage, getUsersThunkCreator, followTC, unFollowTC}
-)(WithUrlDataCC);
-
+export default compose(
+    connect(mapStateToProps,
+        {follow, unFollow, setUsers, changeCurrentPage, getUsersThunkCreator, followTC, unFollowTC}
+    ),
+    WithAuthRedirect,
+    withRouter
+)(UsersContainer);

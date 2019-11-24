@@ -4,13 +4,13 @@ import 'antd/dist/antd.css';
 import {Route} from "react-router-dom";
 
 import NavBar from './Components/Navbar/Navbar';
-import Profile from './Components/Profile/Profile';
 import News from "./Components/News/News";
 import Login from "./Components/Login/Login";
 import DialogsStore from "./Components/Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
 import SettingsContainer from "./Components/Setings/SettingsContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
+import ProfileContainer from "./Components/Profile/ProfileContainer";
 
 
 const App = (props) => {
@@ -20,7 +20,7 @@ const App = (props) => {
         <div className="wrap_content">
             <NavBar store={props.store.getState()}/>
             <div className="content">
-                <Route exact path='/profile' render={() => <Profile store={props.store}/>}/>
+                <Route exact path='/profile' render={() => <ProfileContainer store={props.store}/>}/>
                 <Route path='/dialogs' render={() => <DialogsStore store={props.store}/>}/>
                 <Route path='/users/:userId?' render={() => <UsersContainer />}/>
                 <Route path='/settings/:userId?' render={() => <SettingsContainer />}/>
